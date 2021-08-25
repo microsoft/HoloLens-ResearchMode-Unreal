@@ -1,14 +1,26 @@
-# Project
+# Microsoft Hololens 2 Research Mode for Unreal Engine
 
-> This repo has been populated by an initial template to help get you started. Please
-> make sure to update the content to build a great experience for community-building.
+## What is the Microsoft Hololens 2 Research Mode plugin?
+The Microsoft Hololens 2 Research Mode plugin is an Unreal Engine game plugin which provides additional features
+available on Microsoft's HoloLens 2.
 
-As the maintainer of this project, please make a few updates:
+| NOTE: The Microsoft Hololens 2 Research Mode plugin requires **Unreal 4.27.0+**. |
+| --- |
 
-- Improving this README.MD file to provide a great experience
-- Updating SUPPORT.MD with content about this project's support experience
-- Understanding the security reporting process in SECURITY.MD
-- Remove this section from the README
+## Feature Summary
+
+Full feature list available on [the HoloLens Research Mode
+page](https://docs.microsoft.com/windows/mixed-reality/develop/platform-capabilities-and-apis/research-mode)
+
+The plugin can be used with [Microsoft-OpenXR](https://github.com/microsoft/Microsoft-OpenXR-Unreal) or built-in Windows Mixed Reality plugins.
+
+## Installation
+
+1. Install Unreal Engine from [sources](https://github.com/EpicGames/UnrealEngine/)
+1. Download the Microsoft Microsoft Hololens 2 Research Mode plugin from the this repo.
+1. Apply [Restricted capabilities PR](https://github.com/EpicGames/UnrealEngine/pull/8284) into your UE engine sources. Without this PR, a packaged app with 
+required capabilities can't be ran on the device.
+1. Use your own Hololens 2 project or take the provided sample project. 
 
 ## Contributing
 
