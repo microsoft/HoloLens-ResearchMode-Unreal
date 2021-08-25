@@ -1,0 +1,44 @@
+{
+	"FileVersion": 1,
+	"Version": 1,
+	"VersionName": "1.0.0",
+	"FriendlyName": "HololensResearchMode",
+	"Description": "HololensResearchMode",
+	"Category": "Mixed Reality",
+	"CreatedBy": "Microsoft",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"EngineVersion": "4.27.0",
+	"CanContainContent": true,
+	"IsBetaVersion": true,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"SupportedTargetPlatforms": [
+		"HoloLens",
+		"Win64"
+	],
+	"Modules": [
+		{
+			"Name": "HololensResearchMode",
+			"Type": "Runtime",
+			"LoadingPhase": "PostConfigInit"
+		},
+		{
+			"Name": "HololensResearchModeEditor",
+			"Type": "Editor",
+			"LoadingPhase": "Default",
+			"WhitelistPlatforms": [
+				"Win64"
+			]
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "HoloLensAR",
+			"Enabled": true,
+			"WhitelistPlatforms": [
+				"Win64"
+			]
+		}
+	]
+}
