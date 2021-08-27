@@ -15,22 +15,26 @@ FHololensSensorInternal::FHololensSensorInternal(FHololensResearchModeContext* I
 , OutputSensor(InOutputSensor)
 , bRunning(false)
 {
+}
+
+bool FHololensSensorInternal::StartThread()
+{
 	if (!Context)
 	{
-		return;
+		return false;
 	}
 
 	Context->RequestConsentStatus(FHololensResearchModeUtility::GetConsentType(Type));
 	if (!Context->CreateDevice(Type, RMSensor))
 	{
-		return;
-	}
-
+		return false;
+	}	
+	
 	bRunning = true;
 	FString ThreadName = TEXT("Thread for ");
 	ThreadName += FHololensResearchModeUtility::GetResearchModeSensorTypeName(Type);
 	Thread = FRunnableThread::Create(this, *ThreadName);
-
+	return true;
 }
 
 FHololensSensorInternal::~FHololensSensorInternal()
