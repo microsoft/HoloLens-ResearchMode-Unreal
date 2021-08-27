@@ -22,6 +22,10 @@ The plugin can be used with [Microsoft-OpenXR](https://github.com/microsoft/Micr
 required capabilities can't be ran on the device.
 1. Use your own Hololens 2 project or take the provided sample project. 
 
+## Documenation
+
+The detailed documentation is [here](docs/index.md)
+
 ## Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a

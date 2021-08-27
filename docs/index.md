@@ -1,37 +1,39 @@
-## Welcome to GitHub Pages
+# Hololens Research Mode for Unreal
 
-You can use the [editor on GitHub](https://github.com/microsoft/HoloLens-ResearchMode-Unreal/edit/main/docs/index.md) to maintain and preview the content for your website in Markdown files.
+## What is the Hololens Research Mode for Unreal?
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+![App Screenshot](images/screenshot.jpg)
 
-### Markdown
+Research Mode for Unreal is a **Unreal 4.27+** plugin getting information from Hololens Research Mode to Unreal data format. This is a tool to getting access to Accelerometer, Gyroscope, Magnetometer, Head Tracking and Depth Scanner Cameras. 
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Getting started with Hololens ResearchMode for Unreal
 
-```markdown
-Syntax highlighted code block
+Important notes:
 
-# Header 1
-## Header 2
-### Header 3
+| CAUTION: This plugin is aimed to an advanced developer or researcher, if you are a new in Hololens please follow [the official samples](https://github.com/microsoft/MixedReality-Unreal-Samples) |
+| --- |
 
-- Bulleted
-- List
+| CAUTION: Hololens Research Mode is currently in Public Preview. |
+| --- |
 
-1. Numbered
-2. List
+| CAUTION: This plugin is compatible with Unreal Engine built from the sources only, not with pre-built binaries. |
+| --- |
 
-**Bold** and _Italic_ and `Code` text
+The further detailed instructions is [Installation and Configuration](installation.md)
 
-[Link](url) and ![Image](src)
-```
+## Documentation
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+- [Hololens Unreal docs](https://docs.microsoft.com/windows/mixed-reality/develop/unreal/unreal-development-overview)
+- [Hololens Research Mode docs](https://docs.microsoft.com/windows/mixed-reality/develop/platform-capabilities-and-apis/research-mode)
+- [Hololens 2 Research Mode repo](https://github.com/microsoft/HoloLens2ForCV)
+- [Hololens 2 Research Mode API doc](https://github.com/microsoft/HoloLens2ForCV/raw/main/Docs/ResearchMode-ApiDoc.pdf)
 
-### Jekyll Themes
+## Hololens ResearchMode for Unreal building blocks
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/microsoft/HoloLens-ResearchMode-Unreal/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+- [Hololens Accelerometer](imu-sensors.md#accelerometer)
+- [Hololens Gyroscope](imu-sensors.md#gyroscope)
+- [Hololens Magnetometer](imu-sensors.md#magnetometer)
+- [Hololens Camera Sensor](cam-sensors.md#basic-camera-sensor)
+- [Hololens VLC Cam](cam-sensors.md#vlc-cam)
+- [Hololens Depth Cam](cam-sensors.md#depth-cam)
+- [Hololens Research Mode Function Library](function-library.md)
