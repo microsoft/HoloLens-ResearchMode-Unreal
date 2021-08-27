@@ -22,6 +22,7 @@ public:
 	~FHololensSensorInternal();
 
 	FORCEINLINE bool IsRunning() const { return bRunning; }
+	bool StartThread();
 	FORCEINLINE IResearchModeSensor* GetRMSensor() const { return RMSensor.Get(); }
 	FORCEINLINE IResearchModeSensorFrame * GetCurrentFrame() const { return CurrentFrame.Get(); }
 

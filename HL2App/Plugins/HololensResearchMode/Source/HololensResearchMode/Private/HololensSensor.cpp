@@ -26,6 +26,11 @@ void UHololensSensor::StartCapturing()
 {
 #if PLATFORM_HOLOLENS
 	Sensor = MakeShared<FHololensSensorInternal>(Context, (ResearchModeSensorType)Type, this);
+	bool res = Sensor->StartThread();
+	if (!res)
+	{
+		UE_LOG(LogHLResearch, Error, TEXT("Can't start a working thread for %s"), FHololensResearchModeUtility::GetResearchModeSensorTypeName(Type));
+	}
 #endif
 }
 
