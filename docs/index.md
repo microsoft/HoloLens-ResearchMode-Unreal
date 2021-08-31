@@ -1,39 +1,39 @@
 # Hololens Research Mode for Unreal
 
-## What is the Hololens Research Mode for Unreal?
+## What is HoloLens Research Mode for Unreal?
 
 ![App Screenshot](images/screenshot.jpg)
 
-Research Mode for Unreal is a **Unreal 4.27+** plugin getting information from Hololens Research Mode to Unreal data format. This is a tool to getting access to Accelerometer, Gyroscope, Magnetometer, Head Tracking and Depth Scanner Cameras. 
+Research Mode for Unreal is a **Unreal 4.27+** plugin for getting information from [HoloLens Research Mode](https://docs.microsoft.com/windows/mixed-reality/develop/platform-capabilities-and-apis/research-mode) into Unreal Engine's data format. This is a tool for getting access to the HoloLens 2 Accelerometer, Gyroscope, Magnetometer, Head Tracking and Depth Scanner Cameras. 
 
-## Getting started with Hololens ResearchMode for Unreal
+## Getting started with HoloLens Research Mode for Unreal
 
 Important notes:
 
-| CAUTION: This plugin is aimed to an advanced developer or researcher, if you are a new in Hololens please follow [the official samples](https://github.com/microsoft/MixedReality-Unreal-Samples) |
+| CAUTION: This plugin is aimed towards advanced developers or researchers. If you are a new to HoloLens 2, please take a look at [the official samples](https://github.com/microsoft/MixedReality-Unreal-Samples) to learn how to make use of basic HoloLens 2 features in Unreal. |
 | --- |
 
-| CAUTION: Hololens Research Mode is currently in Public Preview. |
+| CAUTION: HoloLens Research Mode is currently in Public Preview. |
 | --- |
 
-| CAUTION: This plugin is compatible with Unreal Engine built from the sources only, not with pre-built binaries. |
+| CAUTION: This plugin is compatible with Unreal Engine built from source only, not with pre-built binaries. |
 | --- |
 
-The further detailed instructions is [Installation and Configuration](installation.md)
+Instructions for installing and configuring this plugin can be found in [Installation and Configuration](installation.md)
 
-## Documentation
+## Documentation Links
 
-- [Hololens Unreal docs](https://docs.microsoft.com/windows/mixed-reality/develop/unreal/unreal-development-overview)
-- [Hololens Research Mode docs](https://docs.microsoft.com/windows/mixed-reality/develop/platform-capabilities-and-apis/research-mode)
-- [Hololens 2 Research Mode repo](https://github.com/microsoft/HoloLens2ForCV)
-- [Hololens 2 Research Mode API doc](https://github.com/microsoft/HoloLens2ForCV/raw/main/Docs/ResearchMode-ApiDoc.pdf)
+- [HoloLens Unreal docs](https://docs.microsoft.com/windows/mixed-reality/develop/unreal/unreal-development-overview)
+- [HoloLens Research Mode docs](https://docs.microsoft.com/windows/mixed-reality/develop/platform-capabilities-and-apis/research-mode)
+- [HoloLens 2 Research Mode repo](https://github.com/microsoft/HoloLens2ForCV)
+- [HoloLens 2 Research Mode API doc](https://github.com/microsoft/HoloLens2ForCV/raw/main/Docs/ResearchMode-ApiDoc.pdf)
 
-## Hololens ResearchMode for Unreal building blocks
+## HoloLens Research Mode Building Blocks
 
-- [Hololens Accelerometer](imu-sensors.md#accelerometer)
-- [Hololens Gyroscope](imu-sensors.md#gyroscope)
-- [Hololens Magnetometer](imu-sensors.md#magnetometer)
-- [Hololens Camera Sensor](cam-sensors.md#basic-camera-sensor)
-- [Hololens VLC Cam](cam-sensors.md#vlc-cam)
-- [Hololens Depth Cam](cam-sensors.md#depth-cam)
-- [Hololens Research Mode Function Library](function-library.md)
+- [HoloLens Accelerometer](imu-sensors.md#accelerometer)
+- [HoloLens Gyroscope](imu-sensors.md#gyroscope)
+- [HoloLens Magnetometer](imu-sensors.md#magnetometer)
+- [HoloLens Camera Sensor](cam-sensors.md#basic-camera-sensor)
+- [HoloLens VLC Cam](cam-sensors.md#vlc-cam)
+- [HoloLens Depth Cam](cam-sensors.md#depth-cam)
+- [HoloLens Research Mode Function Library](function-library.md)
