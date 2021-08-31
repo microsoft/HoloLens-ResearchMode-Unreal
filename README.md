@@ -1,30 +1,29 @@
 # Microsoft Hololens 2 Research Mode for Unreal Engine
 
 ## What is the Microsoft Hololens 2 Research Mode plugin?
-The Microsoft Hololens 2 Research Mode plugin is an Unreal Engine game plugin which provides additional features
-available on Microsoft's HoloLens 2.
+The Microsoft Hololens 2 Research Mode plugin is an Unreal Engine game plugin which provides access to key sensors available on Microsoft's HoloLens 2 for research applications.
 
 | NOTE: The Microsoft Hololens 2 Research Mode plugin requires **Unreal 4.27.0+**. |
 | --- |
 
 ## Feature Summary
 
-Full feature list available on [the HoloLens Research Mode
-page](https://docs.microsoft.com/windows/mixed-reality/develop/platform-capabilities-and-apis/research-mode)
+The full feature list available is on the [HoloLens Research Mode
+docs](https://docs.microsoft.com/windows/mixed-reality/develop/platform-capabilities-and-apis/research-mode)
 
-The plugin can be used with [Microsoft-OpenXR](https://github.com/microsoft/Microsoft-OpenXR-Unreal) or built-in Windows Mixed Reality plugins.
+The plugin can be used with the [Microsoft-OpenXR](https://github.com/microsoft/Microsoft-OpenXR-Unreal) or built-in Windows Mixed Reality plugins.
 
 ## Installation
 
-1. Install Unreal Engine from [sources](https://github.com/EpicGames/UnrealEngine/)
+1. Install Unreal Engine from [source](https://github.com/EpicGames/UnrealEngine/). If you have never accessed Unreal Engine's source code before, instructions for joining the Epic Games organization on GitHub can be found [here](https://www.unrealengine.com/en-US/ue4-on-github?sessionInvalidated=true).
 1. Download the Microsoft Microsoft Hololens 2 Research Mode plugin from the this repo.
-1. Apply [Restricted capabilities PR](https://github.com/EpicGames/UnrealEngine/pull/8284) into your UE engine sources. Without this PR, a packaged app with 
-required capabilities can't be ran on the device.
-1. Use your own Hololens 2 project or take the provided sample project. 
+1. Apply this [Restricted capabilities PR](https://github.com/EpicGames/UnrealEngine/pull/8284) into your UE engine sources. Without this PR, a packaged app with 
+the required capabilities can't be run on device.
+1. Use your own HoloLens 2 project or the provided sample project. 
 
 ## Documenation
 
-The detailed documentation is [here](docs/index.md)
+Links to further documentation can be found [here](docs/index.md)
 
 ## Contributing
 
