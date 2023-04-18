@@ -8,7 +8,7 @@
 	"CreatedBy": "Microsoft",
 	"CreatedByURL": "",
 	"DocsURL": "",
-	"EngineVersion": "4.27.0",
+	"EngineVersion": "5.1.0",
 	"CanContainContent": true,
 	"IsBetaVersion": true,
 	"IsExperimentalVersion": false,
@@ -27,15 +27,6 @@
 			"Name": "HololensResearchModeEditor",
 			"Type": "Editor",
 			"LoadingPhase": "Default",
-			"WhitelistPlatforms": [
-				"Win64"
-			]
-		}
-	],
-	"Plugins": [
-		{
-			"Name": "HoloLensAR",
-			"Enabled": true,
 			"WhitelistPlatforms": [
 				"Win64"
 			]

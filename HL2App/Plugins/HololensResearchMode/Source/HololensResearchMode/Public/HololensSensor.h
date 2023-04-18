@@ -44,7 +44,7 @@ public:
 	virtual void Init(FHololensResearchModeContext * InContext, EHololensSensorType InType);
 
 	UFUNCTION(BlueprintCallable, Category = "HololensResearchMode")
-	void StartCapturing();
+	virtual void StartCapturing();
 
 	UFUNCTION(BlueprintCallable, Category = "HololensResearchMode")
 	void StopCapturing();

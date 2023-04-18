@@ -147,7 +147,7 @@ void FVideoTextureResource::InitRHI()
 	}
 	else
 	{
-		FRHIResourceCreateInfo CreateInfo;
+		FRHIResourceCreateInfo CreateInfo(TEXT("HoloLensResearchModeResource"));
 		Size.X = Size.Y = 1;
 		TextureRHI = RHICreateTexture2D(Size.X, Size.Y, PF_B8G8R8A8, 1, 1, TexCreate_ShaderResource, CreateInfo);
 		bIsTextureCreated = false;

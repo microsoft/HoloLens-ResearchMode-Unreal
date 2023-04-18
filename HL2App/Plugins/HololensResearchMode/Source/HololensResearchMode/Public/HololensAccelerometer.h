@@ -14,10 +14,10 @@ struct HOLOLENSRESEARCHMODE_API FHololensAccelerometerFrame
 	GENERATED_USTRUCT_BODY()
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "HololensResearchMode")
-	int64 HostMilliseconds;
+	int64 HostMilliseconds = 0;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "HololensResearchMode")
-	FVector AccelSample;
+	FVector AccelSample = FVector::ZeroVector;
 };
 
 

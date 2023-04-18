@@ -59,6 +59,81 @@ UHololensCameraSensor::UHololensCameraSensor(const FObjectInitializer& ObjectIni
 #endif
 }
 
+
+void UHololensCameraSensor::StartCapturing()
+{
+
+#if PLATFORM_HOLOLENS
+
+	/*
+		AHAT Depth Resolution Hack Begins
+
+		Sensor resolution required to generator texture, however the camera stream must be opened beforehand which can block the game thread
+	*/
+
+	int32 TempSensorWidth = 0;
+	int32 TempSensorHeight = 0;
+
+	switch (Type) {
+		case EHololensSensorType::LEFT_LEFT:
+		case EHololensSensorType::LEFT_FRONT:
+		case EHololensSensorType::RIGHT_FRONT:
+		case EHololensSensorType::RIGHT_RIGHT:
+			TempSensorWidth = 640;
+			TempSensorHeight = 480;
+			break;
+		case EHololensSensorType::DEPTH_AHAT:
+			TempSensorWidth = 512;
+			TempSensorHeight = 512;
+			break;
+		case EHololensSensorType::DEPTH_LONG_THROW:
+			TempSensorWidth = 320;
+			TempSensorHeight = 288;
+			break;
+		default:
+			UE_LOG(LogHLResearch, Error, TEXT("Attempting to start a camera sensor for non-camera sensor type: %s"), FHololensResearchModeUtility::GetResearchModeSensorTypeName(Type));
+			return;
+	}
+
+	CalcTextureResolution(TempSensorWidth, TempSensorHeight);
+
+	if (VideoTextureGenerator->IsTextureNeedsToBeInitilized(TempSensorWidth, TempSensorHeight))
+	{
+		if (!VideoTextureGenerator->InitTexture(TempSensorWidth, TempSensorHeight))
+		{
+			UE_LOG(LogHLResearch, Error, TEXT("Video texture initialisation failed, sensor %s isn't available"), FHololensResearchModeUtility::GetResearchModeSensorTypeName(Type));
+
+			{
+				FScopeLock Lock(&Mutex);
+				SensorWidth = 0;
+				SensorHeight = 0;
+				bIsInitialized = false;
+			}
+			return;
+		}
+
+		CameraImage->Init(VideoTextureGenerator->GetTextureHandle());
+		{
+			FScopeLock Lock(&Mutex);
+			SensorWidth = TempSensorWidth;
+			SensorHeight = TempSensorHeight;
+			bIsInitialized = true;
+		}
+	}
+
+	/*
+		AHAT Depth Resolution Hack Begins Ends
+	*/
+
+	Sensor = MakeShared<FHololensSensorInternal>(Context, (ResearchModeSensorType)Type, this);
+	bool res = Sensor->StartThread();
+	if (!res)
+	{
+		UE_LOG(LogHLResearch, Error, TEXT("Can't start a working thread for %s"), FHololensResearchModeUtility::GetResearchModeSensorTypeName(Type));
+	}
+#endif
+}
+
 #if PLATFORM_HOLOLENS
 bool UHololensCameraSensor::BeginSensorLoop()
 {
@@ -78,26 +153,21 @@ bool UHololensCameraSensor::BeginSensorLoop()
 
 	if (VideoTextureGenerator->IsTextureNeedsToBeInitilized(TempSensorWidth, TempSensorHeight))
 	{
-		if (!VideoTextureGenerator->InitTexture(TempSensorWidth, TempSensorHeight))
-		{
-			UE_LOG(LogHLResearch, Error, TEXT("Video texture initialisation failed, sensor %s isn't available"), FHololensResearchModeUtility::GetResearchModeSensorTypeName(Type));
-
-			{
-				FScopeLock Lock(&Mutex);
-				SensorWidth = 0;
-				SensorHeight = 0;
-				bIsInitialized = false;
-			}
-			return false;
-		}
-
-		CameraImage->Init(VideoTextureGenerator->GetTextureHandle());
 		{
 			FScopeLock Lock(&Mutex);
-			SensorWidth = TempSensorWidth;
-			SensorHeight = TempSensorHeight;
-			bIsInitialized = true;
+			SensorWidth = 0;
+			SensorHeight = 0;
+			bIsInitialized = false;
 		}
+
+		return false;
+	}
+
+	{
+		FScopeLock Lock(&Mutex);
+		SensorWidth = TempSensorWidth;
+		SensorHeight = TempSensorHeight;
+		bIsInitialized = true;
 	}
 
 	return true;
