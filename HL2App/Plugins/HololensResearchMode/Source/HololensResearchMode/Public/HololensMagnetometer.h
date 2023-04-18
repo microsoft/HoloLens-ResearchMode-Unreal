@@ -14,10 +14,10 @@ struct HOLOLENSRESEARCHMODE_API FHololensMagnetometerFrame
 	GENERATED_USTRUCT_BODY()
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "HololensResearchMode")
-	int64 HostMilliseconds;
+	int64 HostMilliseconds = 0;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "HololensResearchMode")
-	FVector MagSample;
+	FVector MagSample = FVector::ZeroVector;;
 };
 
 

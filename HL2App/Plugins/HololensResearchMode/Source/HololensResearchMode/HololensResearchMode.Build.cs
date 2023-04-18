@@ -3,9 +3,9 @@
 
 using System.IO;
 using System.Linq;
-using System.Runtime.Remoting.Messaging;
+//using System.Runtime.Remoting.Messaging;
 using UnrealBuildTool;
-using Tools.DotNETCommon;
+//using Tools.DotNETCommon;
 using System;
 using System.Collections.Generic;
 
@@ -30,6 +30,8 @@ public class HololensResearchMode : ModuleRules
 				"ApplicationCore",
 				"Engine",
 				"Projects",
+				"RHI",
+				"RHICore"
 			}
 		);
 

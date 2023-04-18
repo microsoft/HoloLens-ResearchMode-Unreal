@@ -67,7 +67,7 @@ void FHoloLensResearchModeSettingsCustomization::CustomizeDetails(IDetailLayoutB
 
 		SetDefaultCapabilitiesProperty->NotifyPreChange();
 		SetDefaultCapabilitiesProperty->SetValue(false);
-		SetDefaultCapabilitiesProperty->NotifyPostChange();
+		SetDefaultCapabilitiesProperty->NotifyPostChange(EPropertyChangeType::ValueSet);
 	}
 }
 

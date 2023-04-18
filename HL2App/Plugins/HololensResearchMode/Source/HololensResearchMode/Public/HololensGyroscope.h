@@ -14,10 +14,10 @@ struct HOLOLENSRESEARCHMODE_API FHololensGyroscopeFrame
 	GENERATED_USTRUCT_BODY()
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "HololensResearchMode")
-	int64 HostMilliseconds;
+	int64 HostMilliseconds = 0;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "HololensResearchMode")
-	FVector GyroSample;
+	FVector GyroSample = FVector::ZeroVector;
 };
 
 
