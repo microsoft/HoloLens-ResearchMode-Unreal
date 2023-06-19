@@ -8,6 +8,9 @@
 #include "HololensDepthCam.h"
 #include "HololensGyroscope.h"
 #include "HololensMagnetometer.h"
+
+#include "HololensShortThrowSensorStreamThread.h"
+
 #include "Modules/ModuleManager.h"
 #include "Misc/Paths.h"
 #include "CoreGlobals.h"
@@ -20,7 +23,19 @@ FHololensResearchModeModule* FHololensResearchModeModule::Get()
 	return gThis;
 }
 
-void FHololensResearchModeModule::StartupModule() 
+void FHololensResearchModeModule::StartSensorStreamThread()
+{
+#if PLATFORM_HOLOLENS
+	ShortThrowSensorFrameQueryThread = new FHololensShortThrowSensorStreamThread(Context.Get());
+	bool res = ShortThrowSensorFrameQueryThread->StartThread();
+	if (!res)
+	{
+		UE_LOG(LogHLResearch, Error, TEXT("Failed to start a working thread for ForearmSensorThread"));
+	}
+#endif
+}
+
+void FHololensResearchModeModule::StartupModule()
 {
 	Context = MakeShared<FHololensResearchModeContext>();
 	if (!Context->Init())
@@ -28,14 +43,18 @@ void FHololensResearchModeModule::StartupModule()
 		Context = nullptr;
 	}
 	gThis = this;
+	StartSensorStreamThread();
 }
 
-void FHololensResearchModeModule::ShutdownModule() 
+void FHololensResearchModeModule::ShutdownModule()
 {
 	Context = nullptr;
 	gThis = nullptr;
+#if PLATFORM_HOLOLENS
+	delete ShortThrowSensorFrameQueryThread;
+#endif
+	ShortThrowSensorFrameQueryThread = nullptr;
 }
-
 
 UHololensSensor* FHololensResearchModeModule::CreateSensor(EHololensSensorType Type, UObject* Outer)
 {
@@ -70,8 +89,13 @@ UHololensSensor* FHololensResearchModeModule::CreateSensor(EHololensSensorType T
 	return Sensor;
 }
 
-
+void FHololensResearchModeModule::UpdateLatestWristTransformsFromHandTracker(bool bNewLeftHandstate, bool bNewRightHandstate, FTransform& LeftWristTransform, FTransform& RightWristTransform, FVector HeadsetPosition, FQuat HeadsetOrientation, FTransform TrackingToWorldTransform)
+{
+#if PLATFORM_HOLOLENS
+	if (ShortThrowSensorFrameQueryThread)
+		ShortThrowSensorFrameQueryThread->UpdateLatestWristTransformsFromHandTracker(bNewLeftHandstate, bNewRightHandstate, LeftWristTransform, RightWristTransform, HeadsetPosition, HeadsetOrientation, TrackingToWorldTransform);
+#endif
+}
 
 DEFINE_LOG_CATEGORY(LogHLResearch);
 IMPLEMENT_MODULE(FHololensResearchModeModule, HololensResearchMode);
-

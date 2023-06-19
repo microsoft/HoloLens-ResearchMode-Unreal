@@ -93,4 +93,9 @@ TArray<EHololensSensorType> UHololensResearchModeFunctionLibrary::GetAllAvailabl
 	return Result;
 }
 
-
+void UHololensResearchModeFunctionLibrary::UpdateLatestWristTransforms(bool bNewLeftHandstate, bool bNewRightHandstate, FTransform& LeftWristTransform, FTransform& RightWristTransform, FVector HeadsetPosition, FQuat HeadsetOrientation, FTransform TrackingToWorldTransform)
+{
+#if PLATFORM_HOLOLENS
+	FHololensResearchModeModule::Get()->UpdateLatestWristTransformsFromHandTracker(bNewLeftHandstate, bNewRightHandstate, LeftWristTransform, RightWristTransform, HeadsetPosition, HeadsetOrientation, TrackingToWorldTransform);
+#endif
+}

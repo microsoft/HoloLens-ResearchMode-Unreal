@@ -27,5 +27,7 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "HololensResearchMode")
 	static TArray<EHololensSensorType> GetAllAvailableSensors();
+	 
+	static void UpdateLatestWristTransforms(bool bNewLeftHandstate, bool bNewRightHandstate, FTransform& LeftWristTransform, FTransform& RightWristTransform, FVector HeadsetPosition, FQuat HeadsetOrientation, FTransform TrackingToWorldTransform);
 };
 
