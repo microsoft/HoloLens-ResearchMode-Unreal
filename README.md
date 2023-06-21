@@ -17,7 +17,7 @@ The plugin can be used with the [Microsoft-OpenXR](https://github.com/microsoft/
 
 1. Install Unreal Engine from [source](https://github.com/EpicGames/UnrealEngine/). If you have never accessed Unreal Engine's source code before, instructions for joining the Epic Games organization on GitHub can be found [here](https://www.unrealengine.com/en-US/ue4-on-github?sessionInvalidated=true).
 1. Download the Microsoft Microsoft Hololens 2 Research Mode plugin from the this repo.
-1. Apply this [Restricted capabilities PR](https://github.com/EpicGames/UnrealEngine/pull/8284) into your UE engine sources. Without this PR, a packaged app with 
+1. Apply this restricted capabilities PR for [UE4](https://github.com/EpicGames/UnrealEngine/pull/8284) or [UE5](https://github.com/EpicGames/UnrealEngine/pull/10563) into your UE engine sources. Without this PR, a packaged app with 
 the required capabilities can't be run on device.
 1. Use your own HoloLens 2 project or the provided sample project. 
 
